@@ -51,13 +51,9 @@ class LandingPage:
         reg_path = '/html/body/div[2]/div[2]/div[2]/div[1]/div[3]/div/div[2]/div/div/div/div[1]/div/div[2]'
         make_path = '/html/body/div[2]/div[2]/div[2]/div[1]/div[3]/div/div[2]/div/div/div/div[1]/h1'
 
-        reg = WebDriverWait(self.driver, 5).until(
-            EC.visibility_of_element_located((By.XPATH, reg_path))
-        ).text
-        make = WebDriverWait(self.driver, 5).until(
-            EC.visibility_of_element_located((By.XPATH, make_path))
-        ).text
-        year = get_element_text((By.CLASS_NAME, ""))
+        reg = self.get_element_text((By.XPATH, reg_path))
+        make = self.get_element_text((By.XPATH, make_path))
+        # year = get_element_text((By.CLASS_NAME, ""))
         # reg_ = get_element_text((By.CLASS_NAME, ""))
         # transmission = get_element_text((By.CLASS_NAME, ""))
         # fuel = get_element_text((By.CLASS_NAME, ""))

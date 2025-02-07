@@ -12,6 +12,7 @@ def test_valid_registration_details(setup):
     input_data = rd.match_patterns_list(patterns)
     logger.debug( f"Validate registration numbers {input_data}...")
     output_data = output_rd.read_file()
+    logger.debug(f"{output_data=}...")
     for reg in input_data:
         logger.debug( f"Entering registration number {reg}...")
         enter_reg = LandingPage(setup)
@@ -21,6 +22,7 @@ def test_valid_registration_details(setup):
             logger.warning(f"Registration number {reg} is invalid")
         else:
             reg_data = enter_reg.get_valuation_data()
+            logger.debug(f"{reg_data=}...")
             if reg_data:
                 for key, val in reg_data.items():
                     if key in output_data.keys():
