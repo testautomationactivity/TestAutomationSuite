@@ -3,7 +3,7 @@ from selenium import webdriver
 from utils.configs import Configs
 from utils.log import logger
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="function")
 def setup(request):
     # Initialize the WebDriver (Chrome) instance
     chrome_options = webdriver.ChromeOptions()
